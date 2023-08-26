@@ -44,7 +44,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            biblioteca-container
+            ghcr.io/biblioverse/biblioteca-container
           # Docker tags based on the following events/attributes
           tags: |
             type=schedule
