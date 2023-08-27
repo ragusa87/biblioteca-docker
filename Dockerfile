@@ -20,6 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
     openssl \
     supervisor \
     nodejs \
+    npm \
     sudo && rm -rf /var/lib/apt/lists/*
 
 # auto install dependencies and remove libs after installing ext: https://github.com/mlocati/docker-php-extension-installer
