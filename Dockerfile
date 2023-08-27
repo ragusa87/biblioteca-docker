@@ -13,6 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
     # other
     apt-transport-https \
     dma  \
+    p7zip \
     build-essential \
     ca-certificates \
     mariadb-client \
