@@ -1,4 +1,4 @@
-FROM php:8.2-apache-bullseye
+FROM php:8.2-apache-bookworm
 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 
@@ -27,30 +27,19 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 
 
 RUN install-php-extensions \
-    iconv \
     opcache \
-    xml \
     intl \
     pdo_mysql \
-    curl \
-    json \
     zip \
     bcmath \
-    mbstring \
     exif \
-    fileinfo \
-    dom \
     gd \
     imagick \
-    calendar
-
+    @composer
 
 
 RUN apt-get purge -y --auto-remove
 RUN a2enmod rewrite
-
-# Install composer
-RUN install-php-extensions @composer
 
 COPY docker/001-biblioteca.conf /etc/apache2/sites-enabled/001-biblioteca.conf
 
