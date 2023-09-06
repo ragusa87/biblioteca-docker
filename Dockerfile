@@ -50,5 +50,7 @@ RUN sed -e 's/Listen 80/Listen 8080/g' -i /etc/apache2/ports.conf
 COPY ./docker/dma.conf /etc/dma/dma.conf
 COPY ./docker/biblioteca.ini /usr/local/etc/php/conf.d/biblioteca.ini
 
+USER www-data
+
 WORKDIR /var/www/html
 CMD ["docker-php-entrypoint", "apache2-foreground"]
