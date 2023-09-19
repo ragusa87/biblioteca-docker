@@ -20,6 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
     openssl \
     supervisor \
     nodejs \
+    ghostscript \
     npm \
     sudo && rm -rf /var/lib/apt/lists/*
 
@@ -49,6 +50,7 @@ RUN sed -e 's/Listen 80/Listen 8080/g' -i /etc/apache2/ports.conf
 
 COPY ./docker/dma.conf /etc/dma/dma.conf
 COPY ./docker/biblioteca.ini /usr/local/etc/php/conf.d/biblioteca.ini
+COPY ./docker/policy.xml /etc/ImageMagick-6/policy.xml
 
 USER www-data
 
