@@ -44,7 +44,7 @@ RUN apt-get purge -y --auto-remove
 RUN a2enmod rewrite
 
 COPY docker/001-biblioteca.conf /etc/apache2/sites-enabled/001-biblioteca.conf
-
+RUN touch /var/www/.bash_history && chmod 777 /var/www/.bash_history
 # Run from unprivileged port 8080 only
 RUN sed -e 's/Listen 80/Listen 8080/g' -i /etc/apache2/ports.conf
 
