@@ -52,6 +52,13 @@ COPY ./docker/dma.conf /etc/dma/dma.conf
 COPY ./docker/biblioteca.ini /usr/local/etc/php/conf.d/biblioteca.ini
 COPY ./docker/policy.xml /etc/ImageMagick-6/policy.xml
 
+ARG UNAME=www-data
+ARG UGROUP=www-data
+ARG UID=1000
+ARG GID=1000
+RUN usermod  --uid $UID $UNAME
+RUN groupmod --gid $GID $UGROUP
+
 USER www-data
 
 WORKDIR /var/www/html
