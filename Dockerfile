@@ -19,7 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
     mariadb-client \
     openssl \
     supervisor \
-    tesseract-oct \
+    tesseract-ocr \
     nodejs \
     ghostscript \
     unrar \
