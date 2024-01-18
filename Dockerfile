@@ -64,4 +64,5 @@ RUN groupmod --gid $GID $UGROUP
 USER www-data
 
 WORKDIR /var/www/html
-CMD ["docker-php-entrypoint", "apache2-foreground"]
+ENTRYPOINT ["docker-php-entrypoint"]
+CMD ["apache2-foreground"]
