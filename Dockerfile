@@ -61,6 +61,8 @@ ARG GID=1000
 RUN usermod  --uid $UID $UNAME
 RUN groupmod --gid $GID $UGROUP
 
+RUN mkdir -p /var/www/.npm && chown -R $UID:$GID /var/www/.npm
+
 USER www-data
 
 WORKDIR /var/www/html
