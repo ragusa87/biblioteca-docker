@@ -2,8 +2,8 @@ FROM php:8.2-apache-bookworm
 
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
 
-ENV COMPOSER_ALLOW_SUPERUSER 1
-ENV COMPOSER_HOME /home/.composer
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_HOME=/home/.composer
 RUN mkdir -p /home/.composer
 RUN printf "deb http://http.us.debian.org/debian stable main contrib non-free" > /etc/apt/sources.list.d/nonfree.list
 
