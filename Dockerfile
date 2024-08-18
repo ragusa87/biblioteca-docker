@@ -46,6 +46,16 @@ RUN install-php-extensions \
     imagick \
     @composer
 
+# Install kepubify (from https://github.com/linuxserver/docker-calibre-web/blob/master/Dockerfile)
+RUN \
+    if [ -z ${KEPUBIFY_RELEASE+x} ]; then \
+    KEPUBIFY_RELEASE=$(curl -sX GET "https://api.github.com/repos/pgaskin/kepubify/releases/latest" \
+    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
+  fi && \
+  curl -o \
+    /usr/bin/kepubify -L \
+    https://github.com/pgaskin/kepubify/releases/download/${KEPUBIFY_RELEASE}/kepubify-linux-64bit && \
+    chmod +x /usr/bin/kepubify
 
 RUN a2enmod rewrite
 
